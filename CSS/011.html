@@ -1,0 +1,36 @@
+<!-- 자손, 형제, 직계 자식 -->
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+      /* 자손 */
+      div p {
+        color: red;
+      }
+      /* 형제 */
+      /* div와 형제 요소인 p태그에 스타일 부여 */
+      div + p {
+        color: blue;
+      }
+      /* 직계자식 */
+      div > p {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <p>hello world</p>
+    </div>
+    <div>
+      <section>
+        <h2>hellop</h2>
+        <p>hello world</p>
+      </section>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<!-- 중요성의 원칙 -->
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+      .one {
+        color: red !important;
+      }
+      .two {
+        color: blue !important;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 태그 내 class에 기입되는 순서는 적용과는 무관하다. -->
+    <div class="one two">hello world</div>
+    <div class="two one">hello world</div>
+    <!-- important는 inline css보다 우선한다. -->
+    <div class="two" style="color: green"></div>
+  </body>
+</html>
