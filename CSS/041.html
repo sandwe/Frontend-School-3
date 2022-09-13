@@ -1,0 +1,28 @@
+<!-- background-image -->
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <style>
+      body {
+        /* 하나씩 속성 적용해가며 비교해보자. */
+        background-image: url("https://www.tvn-2.com/nacionales/Imagen-ilustrativa-gato-medio-bosque_18585331.jpg");
+        /* 이미지의 기본 사이즈, default 값 */
+        background-size: auto;
+
+        /* 브라우저의 크기가 변해도 가로비가 유지됨, 전체 넓이를 맞춤*/
+        background-size: cover;
+
+        /* 가로, 세로 픽셀 수정 */
+        background-size: 200px;
+
+        /* 이미지 너비, 높이 차례대로 수정 */
+        background-size: 100px 300px;
+
+        /* contain vs cover
+        contain: 이미지가 잘리거나 찌그러지지 않는 한도 내에서 가장 크게 설정
+        cover: 이미지가 잘려도 되는데 찌그러지지 않는 한도 내에서 가장 크게 설정 */
+      }
+    </style>
+  </head>
+  <body></body>
+</html>
