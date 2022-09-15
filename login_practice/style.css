@@ -1,0 +1,67 @@
+html {
+  font-size: 12px;
+}
+body,
+p {
+  margin: 0;
+}
+
+img {
+  vertical-align: bottom;
+}
+a {
+  text-decoration: none;
+}
+
+.wrapper {
+  /* width: 350px; */
+  min-width: 350px;
+  max-width: 800px;
+  background-color: #fff;
+  border: 1px solid #dbdbdb;
+  border-radius: 5px;
+  padding: 19px 16px;
+  margin: 50px auto 0 auto;
+}
+
+.blind {
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+}
+
+p {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.link-login {
+  display: block;
+  background-color: #711bff;
+  border-radius: 4px;
+  text-align: center;
+  padding: 13px 0;
+  margin: 16px 0;
+  color: #fff;
+}
+
+.link-wrap::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.link-wrap a,
+.link-wrap span {
+  color: #767676;
+  font-weight: 400;
+}
+.link-wrap .link-left {
+  float: left;
+}
+.link-wrap .link-right {
+  float: right;
+}
