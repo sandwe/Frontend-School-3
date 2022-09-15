@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+      .foo:first-child {
+        background-color: lightblue;
+      }
+      .foo:nth-child(3) {
+        background-color: lightcoral;
+      }
+      .foo:last-child {
+        background-color: aqua;
+      }
+      a:visited {
+        color: red;
+      }
+      li:not(.one) {
+        color: lightgreen;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 가상 클래스 선택자: 클래스가 없는데 있는 것처럼 처리
+  가상 요소 선택자: 요소가 없는데 있는 것 처럼 처리 -->
+    <ul>
+      <li class="foo">1</li>
+      <li class="foo">2</li>
+      <li class="foo">3</li>
+      <li class="foo one">4</li>
+      <li class="foo">5</li>
+      <a href="https://paullab.co.kr">hello</a>
+    </ul>
+  </body>
+</html>
