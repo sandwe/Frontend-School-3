@@ -1,0 +1,57 @@
+<!-- /* 자식 요소 모두 float 속성 적용 시 자식 요소를 감싸지 못하는 부모 요소 -->
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>float</title>
+    <style>
+      /* 1. 부모 요소에 overflow: visible;을 제외한 overflow 속성을 추가한다. 그럼 float가 적용된 요소를 컨테이너가 인식한다.
+      .parent {
+        overflow: hidden;
+      } */
+      figure {
+        float: left;
+        margin: 0 10px;
+        background-color: royalblue;
+      }
+      /* 2. float가 사용된 요소의 바로 다음 형제 요소에 clear 속성을 적용한다. no*/
+      .one {
+        clear: both;
+      }
+
+      /* 3. clear-fix를 사용하면 2번처럼 불필요한 div를 추가하지 않고 가상요소로 해결할 수 있다.
+      div::after{
+        content:'';
+	      display:block;
+	      clear:both;
+      }
+      */
+    </style>
+  </head>
+
+  <body>
+    <div class="parent">
+      <figure>
+        <img src="https://via.placeholder.com/100" alt="" />
+        <figcaption>Lorem ipsum</figcaption>
+      </figure>
+      <figure>
+        <img src="https://via.placeholder.com/100" alt="" />
+        <figcaption>Lorem ipsum</figcaption>
+      </figure>
+      <figure>
+        <img src="https://via.placeholder.com/100" alt="" />
+        <figcaption>Lorem ipsum</figcaption>
+      </figure>
+      <div class="one"></div>
+    </div>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint illum
+      voluptatem, doloremque velit delectus quam corrupti sit cumque pariatur
+      magnam dignissimos ipsum, vitae sequi similique nihil aspernatur
+      consectetur ratione earum.
+    </p>
+  </body>
+</html>

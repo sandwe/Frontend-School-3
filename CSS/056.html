@@ -1,0 +1,40 @@
+<!-- position: absolute -->
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+      }
+      .grand {
+        background-color: violet;
+        padding: 20px;
+        margin-top: 100px;
+        margin-left: 30px;
+        /* 가장 가까운 부모 요소부터 봤을때, position: relative 없다면 <html> 요소를 기준으로 위치를 잡는다. */
+        /* position: relative; */
+      }
+      .parent {
+        background-color: red;
+      }
+      .child {
+        position: absolute;
+        top: 100px;
+        left: 300px;
+        background-color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grand">
+      <div class="parent">
+        <div class="child">hello</div>
+      </div>
+    </div>
+  </body>
+</html>
