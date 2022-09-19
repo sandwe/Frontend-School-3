@@ -1,0 +1,36 @@
+<!-- flex-shrink -->
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+      .container {
+        display: flex;
+      }
+      .item {
+        flex-grow: 1;
+        width: 50px;
+        height: 50px;
+        background-color: lightskyblue;
+        border: 2px solid black;
+      }
+      .item:nth-child(2) {
+        /* 기본값: 1, 더 줄어들지 않게(ex. 반응형 모바일에서도 깨지면 안되는 이미지) 하기 위해 사용한다. */
+        flex-shrink: 0;
+        flex-basis: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+      <div class="item">5</div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!-- flex-basis -->
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+      .container {
+        display: flex;
+        /* flex-direction: column; */
+        flex-wrap: wrap;
+      }
+      .item {
+        background-color: lightblue;
+        border: 2px solid black;
+      }
+      .item:nth-child(2) {
+        /* 1. 주축의 크기를 지정한다.
+        flex-basis: 150px; */
+
+        /* 2. 2개의 값이 동시에 있으면 basis의 값을 우선 적용한다. */
+        flex-basis: 100px;
+        width: 150px;
+
+        /* 3. width에 지정된 값은 넓이를 강제한다. */
+        width: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+      <div class="item">5</div>
+    </div>
+  </body>
+</html>
