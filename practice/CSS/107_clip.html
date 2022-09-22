@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+      div {
+        position: relative;
+        width: 500px;
+      }
+      img {
+        position: absolute; /* clip은 postion이 absolute여야 적용된다. */
+        width: 100%;
+        top: 0;
+        left: 0;
+        clip: rect(
+          0 500px 300px 0
+        ); /* top right bottom left, top과 left를 기준으로 right bottom으로 px을 설정해야 이미지가 나타난다. */
+        clip-path: inset(0 0 0 0);
+      }
+    </style>
+  </head>
+  <body>
+    <div><img src="../images/unknown.png" alt="" /></div>
+  </body>
+</html>
