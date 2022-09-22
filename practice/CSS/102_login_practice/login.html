@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>기초 구현 실습 - 로그인화면</title>
+    <link rel="stylesheet" href="reset.css" />
+    <style>
+      @font-face {
+        font-family: "Spoqa Han Sans Neo";
+        src: url("images/fonts/SpoqaHanSansNeo-Medium.otf");
+        font-weight: 500;
+      }
+      @font-face {
+        font-family: "Spoqa Han Sans Neo";
+        src: url("images/fonts/SpoqaHanSansNeo-Regular.otf");
+        font-weight: 400;
+      }
+      body {
+        font-family: "Spoqa Han Sans Neo", "sans-serif";
+        line-height: 15px;
+        font-weight: 400;
+        font-size: 12px;
+      }
+
+      .cont-login {
+        width: 350px;
+        padding: 18px 15px 17px;
+        margin: 20px auto;
+        border: 1px solid #dbdbdb;
+        border-radius: 5px;
+      }
+      .cont-login .txt-login {
+        margin-bottom: 16px;
+      }
+      .cont-login .link-login {
+        display: block;
+        padding: 13px 20px 12px;
+        margin-bottom: 17px;
+        background-color: #711bff;
+        border-radius: 4px;
+        color: #fff;
+        text-decoration: none;
+        text-align: center;
+        font-weight: 500;
+      }
+      .link-login .img-login {
+        width: 57px;
+        height: 12px;
+        margin-right: 5px;
+      }
+      .cont-login .find {
+        float: left;
+      }
+      /* 이미지 자식인 모든 요소에 float 속성 적용하면 display가 block으로 바뀐더. */
+      /* float 적용하면 인라인 요소의 베이스라인이 다양해서 흐트러져있는 것을 정렬할 수 있다. */
+      .cont-login .find * {
+        float: left;
+      }
+      .cont-login .join {
+        float: right;
+      }
+      .cont-login .join * {
+        float: left;
+      }
+      .cont-login .img-find,
+      .cont-login .img-join {
+        width: 16px;
+        height: 16px;
+        margin-right: 5px;
+      }
+      /* anchor에 속성 적용 */
+      .find [class^="link"],
+      .join [class^="link"] {
+        text-decoration: none;
+        color: #767676;
+      }
+      .find .link-id::after {
+        display: inline-block;
+        content: "";
+        width: 1px;
+        height: 11px;
+        background-color: #767676;
+        margin: 0 6px 0 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 클래스 네밍 : 형태 + 의미 -->
+    <article class="cont-login clearFix">
+      <h2 class="txt-hide">위니브 로그인</h2>
+      <p class="txt-login">더 편리해진 위니브에 오신 것을 환영합니다.</p>
+      <a href="#" class="link-login">
+        <img src="./images/weniv-logo.png" alt="" class="img-login" />
+        로그인
+      </a>
+      <div class="find">
+        <img src="./images/icon-lock.png" alt="" class="img-find" />
+        <a href="" class="link-id">아이디</a>
+        <a href="" class="link-pw">비밀번호 찾기</a>
+      </div>
+      <div class="join">
+        <img src="./images/icon-user.png" alt="" class="img-join" />
+        <a href="" class="link-join">회원가입</a>
+      </div>
+    </article>
+  </body>
+</html>
