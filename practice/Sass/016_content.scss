@@ -1,0 +1,13 @@
+// mixin 정의
+@mixin sample {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @content;
+}
+// 사용하는 곳에서
+a {
+  @include sample {
+    color: white; // smaple의 스타일도 가지면서 새로운 스타일 추가
+  }
+}

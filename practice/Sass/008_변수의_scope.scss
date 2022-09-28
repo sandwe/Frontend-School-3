@@ -1,0 +1,13 @@
+.info {
+  $line-normal: 1.34; // 지역변수
+  font-size: 15px;
+  line-height: $line-normal;
+  text-align: right;
+  span {
+    line-height: $line-normal;
+  }
+}
+// 지역변수를 찾지 못해 컴파일 시 에러 발생
+.one {
+  line-height: $line-normal;
+}

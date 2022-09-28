@@ -1,0 +1,6 @@
+@for $hj from 1 through 3 {
+  .profile-#{$hj} {
+    background-color: red;
+    font-size: #{$hj * 10} + px;
+  }
+}

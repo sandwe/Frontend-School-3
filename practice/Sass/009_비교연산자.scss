@@ -1,0 +1,9 @@
+// 출력 창에 결과 나타난다.
+@debug 100 > 50; // true
+@debug 10px < 17px; // true
+@debug 1000ms <= 1s; // true
+@debug 1px == 1px; // true
+@debug 1px != 1em; // true
+@debug 1px == 1px; // true
+@debug 1px != 1em; // true
+@debug 1 != 1px; // true
