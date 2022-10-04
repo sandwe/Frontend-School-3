@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <script>
+      console.log(true == 1); // true
+      console.log(false == 0); // true
+
+      console.log(NaN == NaN); // false
+      console.log(NaN === NaN); // false
+
+      console.log(false == null); // false
+      console.log(false == NaN); // false
+      console.log(false == undefined); // false
+
+      console.log(+false); // 0
+      console.log(+true); // 1
+      console.log(false * 1); // 0
+      console.log(true * 1); // 1
+      console.log(1 + ""); // '1'
+      console.log(Infinity + ""); // 'Infinity'
+      console.log(true + ""); // 'true'
+      console.log("" + 1); // '1'
+      console.log("12" + 1); // '121'
+      console.log(+"100" + 10); // 110
+
+      // 일부러 유지보수 어렵게 만들 이유가 아니라면 이렇게 짜지 않는다.
+      console.log("2" + "2" + "2"); // '222'
+      console.log("2" + "2"); // '22'
+      console.log("2" - "2"); // 0
+    </script>
+  </body>
+</html>

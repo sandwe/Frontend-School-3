@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <script>
+      let newUser = {
+        id: "abc",
+        pw: "1234", //  실제로는 해시 생성해서 pw 관리, https://www.convertstring.com/ko/Hash/MD5
+        name: "aaaa",
+        email: "abcd@gmail.com",
+        active: true, // 휴면계정 관리
+      };
+
+      console.log(newUser["id"]);
+      console.log(newUser.id);
+
+      //--------------------------
+
+      let user = [
+        {
+          //key : value
+          id: "licat",
+          pw: "1234", // 81DC9BDB52D04DC20036DBD8313ED055 이렇게 저장합니다. ("MD5는 사용하지 않습니다.")
+          name: "leehojun",
+          email: "paul@weniv.com",
+          active: true,
+        },
+        {
+          //key : value
+          id: "lion",
+          pw: "2345", // 81DC9BDB52D04DC20036DBD8313ED055 이렇게 저장합니다. ("MD5는 사용하지 않습니다.")
+          name: "leehojin",
+          email: "pa@weniv.com",
+          active: true,
+        },
+      ];
+
+      console.log(user[0]["id"]);
+      console.log(user.id);
+
+      // 3.
+      let a = 10;
+      let b = 20;
+      let c = 30;
+      let e = {a, b, c};
+      console.log(e);
+
+      // let test = { 'one', 'two', 'three' };
+      // console.log(test);
+
+      // 4. 값을 변경할 수 있다.
+      e["a"] = 50;
+      console.log(e);
+
+      // 5. key 값으로 문자열 외에 다른 값을 넣었을 경우
+      let txt = "hello";
+      let txt2 = {
+        0: "h",
+        1: "e",
+        2: "l",
+        3: "l",
+        4: "o",
+      };
+      console.log(txt[1]);
+      console.log(txt2[1]); // 유사 배열 객체
+
+      // 에러가 나지만 map에서는 가능하다.
+      // console.log(txt2.1);
+      // console.log(txt2.{'one' : 1});
+
+      // 6. value의 값으로 문자열 외에 다른 값을 넣었을 경우
+      // let test = {
+      //   one: sum,
+      //   two: console.log,
+      //   three: window.innerWidth,
+      //   four: [10. 20. 30],
+      //   five: "10",
+      //   six: 100,
+      // };
+
+      // console.log(test);
+      // test.two("아아!!");
+
+      // 7. key와 value만 뽑아내기
+      console.log(Object.keys(newUser));
+      console.log(Object.values(newUser));
+      console.log(Object.entries(newUser));
+
+      // 8. object spread 용법
+      let obj1 = {
+        a: "1",
+        b: "2",
+        c: "3",
+      };
+
+      let obj2 = {};
+
+      let newUser2 = newUser;
+      newUser2["id"] = "helloworld";
+      console.log(newUser);
+      console.log(newUser2);
+
+      let newUser2 = {...newUser};
+      newUser2["id"] = "helloworld";
+      console.log(newUser);
+      console.log(newUser2);
+
+      function sum(x, y) {
+        return x + y;
+      }
+      console.log(sum);
+      console.log(typeof sum);
+
+      sum.value = "abc";
+      console.dir(sum);
+    </script>
+  </body>
+</html>
