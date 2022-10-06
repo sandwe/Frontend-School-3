@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <!-- var 무분별한 사용시 문제점 예시 -->
+    <!-- 코드를 순차적으로 읽으면서 덮어씌어진다 -->
+    <script src="a.js"></script>
+    <script src="b.js"></script>
+    <script>
+      console.log(변수);
+      console.log(변수2);
+      console.log(함수(50, 5));
+
+      let 수학점수 = [10, 99, 88, 85, 21, 35];
+
+      let avg = 0;
+      const count = 수학점수.length;
+      for (let i = 0; i < count; i++) {
+        avg += 수학점수[i];
+      }
+      console.log(avg / count);
+    </script>
+  </body>
+</html>
