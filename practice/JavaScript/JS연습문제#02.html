@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSON 데이터 가공하기</title>
+    <style>
+      table,
+      thead,
+      tbody,
+      tr,
+      th,
+      td {
+        border: solid 1px black;
+        border-collapse: collapse;
+      }
+
+      table {
+        width: 100%;
+      }
+      th {
+        width: 15%;
+      }
+      button {
+        margin: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="btn-wrap">
+      <button type="button">평균 나이</button>
+    </div>
+    <table id="table-info">
+      <thead>
+        <th>id</th>
+        <th>age</th>
+        <th>eyeColor</th>
+        <th>name</th>
+        <th>gender</th>
+        <th>email</th>
+        <th>phone</th>
+      </thead>
+      <tbody id="table-content"></tbody>
+    </table>
+    <script>
+      const jsonData = [
+        {
+          _id: "5e80777f673acf89c007ff91",
+          age: 27,
+          eyeColor: "green",
+          name: "Angelina Chang",
+          gender: "female",
+          email: "angelinachang@kangle.com",
+          phone: "+1 (938) 477-2821",
+        },
+        {
+          _id: "5e80777feee717674b817fd2",
+          age: 25,
+          eyeColor: "green",
+          name: "Deidre Cobb",
+          gender: "female",
+          email: "deidrecobb@kangle.com",
+          phone: "+1 (938) 477-2824",
+        },
+        {
+          _id: "5e80777fac368a4578dda85d",
+          age: 25,
+          eyeColor: "blue",
+          name: "Jolene Franks",
+          gender: "female",
+          email: "jolenefranks@kangle.com",
+          phone: "+1 (985) 536-3981",
+        },
+        {
+          _id: "5e80777ff3717874cbc78e44",
+          age: 31,
+          eyeColor: "brown",
+          name: "Waters Hardin",
+          gender: "male",
+          email: "watershardin@kangle.com",
+          phone: "+1 (938) 559-2224",
+        },
+        {
+          _id: "5e80777fe36842ea9e024fcd",
+          age: 34,
+          eyeColor: "green",
+          name: "Jody Chaney",
+          gender: "female",
+          email: "jodychaney@kangle.com",
+          phone: "+1 (878) 587-2602",
+        },
+        {
+          _id: "5e80777fafd591f57344eb33",
+          age: 31,
+          eyeColor: "green",
+          name: "Ortiz Maldonado",
+          gender: "male",
+          email: "ortizmaldonado@kangle.com",
+          phone: "+1 (986) 509-2753",
+        },
+        {
+          _id: "5e80777f20e48e9ada226862",
+          age: 25,
+          eyeColor: "brown",
+          name: "Stacy Burris",
+          gender: "female",
+          email: "stacyburris@kangle.com",
+          phone: "+1 (864) 577-3500",
+        },
+        {
+          _id: "5e80777faf334f84a2c90595",
+          age: 33,
+          eyeColor: "brown",
+          name: "Davenport Levy",
+          gender: "male",
+          email: "davenportlevy@kangle.com",
+          phone: "+1 (990) 600-2700",
+        },
+      ];
+
+      // 테이블 데이터 렌더링
+      const tbody = document.querySelector("#table-content");
+      let tBodyData = [];
+
+      for (const user of jsonData) {
+        tBodyData.push(`
+          <tr>
+            <td>${user._id}</td>
+            <td>${user.age}</td>
+            <td>${user.eyeColor}</td>
+            <td>${user.name}</td>
+            <td>${user.gender}</td>
+            <td>${user.email}</td>
+            <td>${user.phone}</td>
+          <tr>
+        `);
+      }
+      tbody.innerHTML = tBodyData.join("");
+
+      // 평균 나이 텍스트 렌더링
+      const btn = document.querySelector("button");
+      btn.addEventListener("click", getAgeAverage);
+
+      // 평균 나이 구하기
+      function getAgeAverage() {
+        let ageSum = 0;
+        for (const user of jsonData) {
+          ageSum += user.age;
+        }
+        const average = ageSum / jsonData.length;
+
+        const spanEl = document.createElement("span");
+        spanEl.textContent = `유저들의 평균 나이는 ${average}입니다.`;
+        document.querySelector(".btn-wrap").appendChild(spanEl);
+        btn.setAttribute("disabled", "");
+      }
+    </script>
+  </body>
+</html>
