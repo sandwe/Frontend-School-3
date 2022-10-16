@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>js</title>
+    <style>
+      div {
+        margin: 0 auto;
+        width: 500px;
+        height: 500px;
+        background-color: black;
+      }
+      .red {
+        background-color: red;
+      }
+      .yellow {
+        background-color: yellow;
+      }
+      .green {
+        background-color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+    <ul>
+      <li><button class="red-btn">빨강</button></li>
+      <li><button class="yellow-btn">노랑</button></li>
+      <li><button class="green-btn">초록</button></li>
+    </ul>
+
+    <!-- <div id="myDiv">div 입니다!</div>
+    <div id="myDiv">div 입니다!</div>
+    <div id="myDiv">div 입니다!</div>
+    <div id="myDiv">div 입니다!</div>
+    <div id="myDiv">div 입니다!</div> -->
+
+    <!-- 점심 식단
+    <article id="container">
+      <ul>
+        <li>탕수육</li>
+        <li class="item-second">유산슬</li>
+        <li>짜장면</li>
+      </ul>
+    </article>
+
+    저녁 식단
+    <article>
+      <ul>
+        <li>된장국</li>
+        <li class="item-second">김치찌게</li>
+        <li>해장국</li>
+      </ul>
+    </article> -->
+    <script>
+      // id로 접근하는 방법
+      // 요소를 찾아서 저장하고 사용한다!
+      // const myDiv = document.getElementById("myDiv");
+      // console.log(myDiv);
+      // console.log(document.getElementsByTagName("div"));
+      // const container = document.getElementById("container");
+      // console.log(container.getElementsByClassName("item-second"));
+      // console.log(document.getElementsByClassName("item-second"));
+      // console.log(document.getElementsByClassName("item-second")[0]);
+      // console.log(document.getElementsByTagName("li")[0]);
+
+      // console.log(document.querySelector(".item-second"));
+      // console.log(document.querySelectorAll(".item-second"));
+      const divEl = document.querySelector("div");
+      const redBtn = document.querySelector(".red-btn");
+      const yellowBtn = document.querySelector(".yellow-btn");
+      const greenBtn = document.querySelector(".green-btn");
+
+      const btnArr = [redBtn, yellowBtn, greenBtn];
+      btnArr.forEach((item) => {
+        item.addEventListener("click", function () {
+          divEl.classList.remove("red", "yellow", "green");
+          if (item.classList.contains("red-btn")) divEl.classList.add("red");
+          else if (item.classList.contains("yellow-btn")) divEl.classList.add("yellow");
+          else if (item.classList.contains("green-btn")) divEl.classList.add("green");
+        });
+      });
+      // redBtn.addEventListener("click", function () {
+      //   divEl.classList.remove("red", "yellow", "green");
+      //   // if (divEl.classList.contains("yellow")) divEl.classList.remove("yellow");
+      //   // if (divEl.classList.contains("green")) divEl.classList.remove("green");
+      // });
+
+      // yellowBtn.addEventListener("click", function () {
+      //   divEl.classList.remove("red", "yellow", "green");
+      //   divEl.classList.add("yellow");
+      //   // if (divEl.classList.contains("red")) divEl.classList.remove("red");
+      //   // if (divEl.classList.contains("green")) divEl.classList.remove("green");
+      // });
+
+      // greenBtn.addEventListener("click", function () {
+      //   divEl.classList.remove("red", "yellow", "green");
+      //   divEl.classList.add("green");
+      //   // if (divEl.classList.contains("yellow")) divEl.classList.remove("yellow");
+      //   // if (divEl.classList.contains("red")) divEl.classList.remove("red");
+      // });
+    </script>
+  </body>
+</html>
