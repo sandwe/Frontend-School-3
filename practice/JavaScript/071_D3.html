@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>D3</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+
+      :root {
+        --main-font: "Pacifico", cursive;
+      }
+
+      text {
+        font-family: var(--main-font);
+      }
+
+      svg {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- D3 사용 안하고 일일히 그리고 있는 경우 -->
+    <svg width="500px" height="500px">
+      <!-- 그룹화 -->
+      <g>
+        <!-- cy: y좌표, cx: x좌표, r: 반지름 -->
+        <circle cy="100" cx="100" r="30"></circle>
+        <circle cy="10" cx="10" r="30"></circle>
+        <rect x="200" y="50" width="50" height="50" style="fill: red; stroke: black"></rect>
+        <!-- d 속성: 선의 경로를 좌표로 찍어서 이어주는 작업 -->
+        <path d="M 100,300 100,350 200,300 200,350" style="fill: black"></path>
+        <path d="M 300,300 300,350 400,350 400,300" style="fill: black"></path>
+      </g>
+      <text x="150" y="150">hello world</text>
+    </svg>
+    <div class="canvas"></div>
+    <script>
+      // d3로 요소 만드는 경우
+      const canvas = d3.select(".canvas");
+      const svg = canvas.append("svg").attr("width", 1000).attr("height", 1000);
+
+      // svg.append("circle").attr("cx", 100).attr("cy", 100).attr("r", 30);
+      // svg.append("circle").attr("cx", 100).attr("cy", 100).attr("r", 30).attr("fill", #999999);
+      // d3를 사용한 장점? for문을 사용하여 다양한 도형을 만들 수 있다. svg로하면 한정적인 것들을 가능하게 한다.
+      color = ["red", "green", "blue", "pink", "purple"]; // 16진수 허용
+      for (let i = 1; i < 6; i++) {
+        svg
+          .append("circle")
+          .attr("cx", 100 * i)
+          .attr("cy", 100 * i)
+          .attr("r", (30 * i) / 2)
+          .attr("fill", color[i - 1]);
+      }
+
+      svg.append("rect").attr("x", 200).attr("y", 85).attr("width", 30).attr("height", 30).attr("fill", "pink");
+      svg.append("text").attr("x", 250).attr("y", 115).text("hello D3 world!").style("font-size", "32px").style("font-weight", "bold").style("font-family", "Pacifico");
+      // x1, y1: x, y좌표 시작, x2, y2: x, y 좌표 끝
+      svg.append("line").attr("x1", 200).attr("y1", 200).attr("x2", 300).attr("y2", 300).attr("stroke", "red");
+    </script>
+  </body>
+</html>
