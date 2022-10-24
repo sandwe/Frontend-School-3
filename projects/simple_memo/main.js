@@ -1,6 +1,4 @@
-let memoList = JSON.parse(localStorage.getItem("memoList"));
-
-memoList = memoList ?? [];
+let memoList = JSON.parse(localStorage.getItem("memoList")) ?? [];
 
 renderMemo();
 
@@ -14,6 +12,8 @@ function saveMemo() {
 }
 
 function renderMemo() {
+  memoList = JSON.parse(localStorage.getItem("memoList")) ?? [];
+
   const memoDisplay = document.getElementById("memoDisplay");
   memoDisplay.innerHTML = "";
 
@@ -29,6 +29,7 @@ function renderMemo() {
     saveId.textContent = idx + 1;
     deleteMemoBtn.textContent = "삭제";
     deleteMemoBtn.setAttribute("id", idx + 1);
+    deleteMemoBtn.classList.add("btn-delete");
     deleteMemoBtn.addEventListener("click", deleteMemo);
 
     memoItem.append(saveId, saveTitle, saveContent, deleteMemoBtn);
@@ -38,3 +39,9 @@ function renderMemo() {
 
 const saveMemoBtn = document.querySelector(".btn-save");
 saveMemoBtn.addEventListener("click", saveMemo);
+
+function deleteMemo(event) {
+  const newMemoList = memoList.filter((_, idx) => idx + 1 != event.srcElement.id);
+  localStorage.setItem("memoList", JSON.stringify(newMemoList));
+  renderMemo();
+}

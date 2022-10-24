@@ -10,14 +10,16 @@
   <body>
     <main>
       <section>
-        <h2>메모장</h2>
-        <input type="text" id="title" placeholder="제목" />
-        <textarea name="" id="content" cols="30" rows="10" placeholder="내용"></textarea>
-        <button class="btn-save">저장</button>
+        <form>
+          <h2>메모장</h2>
+          <input type="text" id="title" placeholder="제목" required />
+          <textarea name="" id="content" cols="30" rows="10" placeholder="내용" required></textarea>
+          <button class="btn-save">저장</button>
+        </form>
       </section>
       <section id="memoDisplay">
         <h2 class="screen-out">작성한 메모</h2>
-        <ol></ol>
+        <ul></ul>
       </section>
     </main>
   </body>
