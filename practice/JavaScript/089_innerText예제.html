@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    상황) 쇼핑몰에 들어왔다. -> VIP회원으로 로그인 되어 있는 경우에만 가격 혜택을 받을 수 있다.
+    <figure>
+      <img src="" alt="" />
+      <figcaption>상품가격 : 39,900원 <span class="hidden" style="color: red">(주의) VIP 회원이 아니시라면 혜택을 받으실 수 없습니다.</span></figcaption>
+    </figure>
+
+    <script>
+      const txt = document.querySelector("figcaption");
+      // (주의) 숨긴  문구를 가져와 사용할 필요가 있을 때
+      // textContent는 스타일에 상관없이 모든 텍스트를 가져온다.
+      console.log(txt.textContent);
+      //  innerText는 요소에 적용된 스타일(display, visibility)까지 고려해서 텍스트를 가져온다.
+      console.log(txt.innerText);
+      // innerHTML은 요소안의 HTML이나 XML까지도 가져온다.
+      console.log(txt.innerHTML);
+    </script>
+  </body>
+</html>

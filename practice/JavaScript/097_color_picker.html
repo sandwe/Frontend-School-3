@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Picker</title>
+    <style>
+      /* root는 가상클래스이다.*/
+      :root {
+        --main-bgColor: teal;
+        --main-txtColor: white;
+      }
+      body {
+        padding: 0;
+        margin: 0;
+        font-size: 1.5em;
+        background-color: var(--main-bgColor);
+      }
+      .wrapper {
+        padding: 20px;
+        text-align: center;
+        background-color: #fff;
+      }
+      .picker {
+        display: inline-block;
+      }
+      .picker + .picker {
+        margin-left: 30px;
+      }
+      main {
+        color: var(--main-txtColor);
+      }
+    </style>
+  </head>
+  <body>
+    <section class="wrapper">
+      <article class="picker">
+        <label for="bg">배경색 : </label>
+        <!-- data-id: input 요소안에 간단한 데이터를 집어넣어주는 속성 -->
+        <input type="color" id="bg" class="inp-picker" data-id="bgColor" />
+      </article>
+      <article class="picker">
+        <label for="text">글씨색 : </label>
+        <!-- data-id: input 요소안에 간단한 데이터를 집어넣어주는 속성, 스크립트에서 dataset.id으로 값을 가져올 수 있다. -->
+        <input type="color" id="txt" class="inp-picker" data-id="txtColor" />
+      </article>
+    </section>
+    <main>
+      <h1>Color Picker</h1>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non quibusdam, cum officia quam aliquid officiis voluptas recusandae pariatur quasi eum nam sit culpa similique aspernatur dolore laborum eaque rerum necessitatibus?</p>
+    </main>
+    <script>
+      const inpPicker = document.querySelectorAll(".inp-picker");
+
+      // 이것이 위지위그(wysiwyg)다!
+      inpPicker.forEach((item) => {
+        item.addEventListener("input", () => {
+          const name = `--main-${event.target.dataset.id}`;
+
+          const root = document.querySelector(":root");
+          root.style.setProperty(name, event.target.value);
+        });
+      });
+    </script>
+  </body>
+</html>
