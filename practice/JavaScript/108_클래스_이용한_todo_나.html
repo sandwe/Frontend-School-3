@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <script>
+      class Todo {
+        constructor(item, finished = false) {
+          this.item = item;
+          this.finished = finished;
+        }
+
+        changeState() {
+          this.finished = !this.finished;
+        }
+      }
+
+      class TodoManager {
+        // constructor 메서드에 매개변수를 안줘도 될 듯하다. 인스턴스 내에서 사용할 초기값을 설정해주는 거니까!
+        // constructor(todoList = []) {
+        //   this.todoList = todoList;
+        // }
+        constructor() {
+          this.todoList = [];
+        }
+
+        // addItem의 매개변수로 finished 기본값을 넣어주는 것이 addItem 메서드의 목적에 더부합하는것 같음
+        addItem(todo) {
+          const newTodo = new Todo(todo, false);
+          this.todoList = [...this.todoList, newTodo];
+        }
+
+        getItems() {
+          return this.todoList;
+        }
+
+        getLeftTodoCount() {
+          return this.todoList.filter((item) => !item.finished).length;
+        }
+      }
+    </script>
+  </body>
+</html>
