@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <li>hello world</li>
+    <li>hello world</li>
+    <li>hello world</li>
+    <li>hello world</li>
+    <li>hello world</li>
+    <li>hello world</li>
+    <li>hello world</li>
+    <li>hello world</li>
+    <li>hello world</li>
+    <li>hello world</li>
+
+    <p>hello</p>
+    <p>hello</p>
+    <p>hello</p>
+    <p>hello</p>
+    <p>hello</p>
+    <script>
+      $("li").eq(0).css("color", "red");
+      $("li:eq(3)").css("color", "red");
+      // $("li").eq(3).css("color", "red");
+      $("li:gt(6)").css("color", "blue");
+
+      $("p:nth-child(2n)").css("color", "green");
+      $("p:even").css("color", "orange"); // 0부터 시작한다.
+    </script>
+  </body>
+</html>
