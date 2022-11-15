@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <button id="상품불러오기">상품불러오기</button>
+    <label for="one">상품이름</label>
+    <input id="one" type="text" />
+    <label for="two">제품가격</label>
+    <input id="two" type="number" />
+    <label for="three">출시날짜</label>
+    <input id="three" type="date" />
+    <label for="four">재고</label>
+    <input id="four" type="number" />
+    <button id="상품등록하기" type="button">상품등록하기</button>
+    <script>
+      const btnLoad = document.querySelector("#상품불러오기");
+
+      // READ
+      btnLoad.addEventListener("click", (event) => {
+        fetch("http://localhost:3001/product", {
+          method: "GET",
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            for (const item of data) {
+              const container = document.createElement("section");
+              const productName = document.createElement("h2");
+              const price = document.createElement("p");
+
+              productName.textContent = item.productName;
+              price.textContent = item.price;
+
+              container.append(productName, price);
+              document.body.appendChild(container);
+            }
+          });
+      });
+
+      // CREATE
+      const btnRegister = document.querySelector("#상품등록하기");
+
+      const productInfo = {
+        id: document.getElementById("one").value,
+        productName: document.getElementById("two").value,
+        price: parseInt(document.getElementById("three").value),
+        stockCount: parseInt(document.getElementById("four").value),
+        viewCount: 0,
+        pubDate: document.getElementById("three").value,
+        modDate: document.getElementById("three").value,
+      };
+
+      btnRegister.addEventListener("click", (event) => {
+        fetch("http://localhost:3001/product", {
+          method: "POST",
+          headers: {"Content-Type": "application/json"},
+          body: JSON.stringify(productInfo),
+        })
+          .then((response) => response.json())
+          .then((data) => {});
+      });
+    </script>
+  </body>
+</html>
