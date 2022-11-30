@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <h1>hello sop!</h1>
+    <iframe src="test.html" frameborder="0" class="test"></iframe>
+    <iframe
+      class="youtube"
+      width="1083"
+      height="609"
+      src="https://www.youtube.com/embed/4TWR90KJl84"
+      title="aespa 에스파 'Next Level' MV"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+
+    <script>
+      let x = document.querySelector(".test");
+      let y = document.querySelector(".youtube");
+
+      // load 이벤트를 등록해 iframe의 test.html을 가져오면 다음의 동작을 하도록 한다.
+      x.addEventListener("load", () => {
+        console.log("same origin: ", x.contentDocument);
+        x.contentDocument.body.style.backgroundColor = "red";
+        // contentDocument: 만약 iframe과 iframe's parent document가 같은 origin을 가진다면 iframe의 document 객체를 반환한다.
+      });
+
+      y.addEventListener("load", () => {
+        console.log("same origin: ", y.contentDocument); // null, 호스트가 달라 다른 출처라 접근할 수 없다.
+        y.contentDocument.body.style.backgroundColor = "red";
+      });
+    </script>
+  </body>
+</html>

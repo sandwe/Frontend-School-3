@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <video src="">
+      <source src="test.mp4" type="video/mp4" />
+      <source src="test.webm" type="video/webm" />
+
+      <!-- 비디오와 관련없는 태그를 video 태그 내에 넣어 레거시 브라우저에서 아래의 HTML 태그를 띄울 수 있도록 한다. HTML의 예외처리라고 보자. -->
+      <p>브라우저가 HTML5 비디오를 지원하지 않습니다!<a href="">비디오 다운로드</a></p>
+    </video>
+
+    <script>
+      const canvas = document.createElement("canvas");
+      const warning = document.crateElement("strong");
+
+      const ctx = canvas.getContext("webgl");
+
+      if (ctx) {
+        document.body.appendChild(canvas);
+      } else {
+        warning.innerHTML = "이 사이트는 구형 브라우저에서 사용되고 있습니다. 브라우저를 업그레이드 해주세요!";
+        document.body.appendChild(warning);
+      }
+    </script>
+  </body>
+</html>

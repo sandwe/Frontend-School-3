@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.0.1/redux.js"></script>
+  </head>
+
+  <body>
+    <style>
+      .container {
+        border: 5px solid black;
+        width: 100px;
+        height: 200px;
+        padding: 10px;
+        display: inline-block;
+        border-radius: 0px;
+      }
+
+      div {
+        display: inline-block;
+      }
+    </style>
+    <button onclick="store.dispatch({type:'CHANGE_RADIUS', borderRadius: '0px'})">사각형</button>
+    <button onclick="store.dispatch({type:'CHANGE_RADIUS', borderRadius: '5%'})">둥근사각형</button>
+    <button onclick="store.dispatch({type:'CHANGE_RADIUS', borderRadius: '50%'})">원</button>
+    <button onclick="store.dispatch({type:'CHANGE_COLOR', color: 'red'})">빨강</button>
+    <button onclick="store.dispatch({type:'CHANGE_COLOR', color: 'blue'})">파랑</button>
+
+    <br /><br /><br />
+    <div id="one"></div>
+    <div id="two"></div>
+    <div id="three"></div>
+    <script>
+      // store
+      var store = Redux.createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+
+      function reducer(state, action) {
+        if (state === undefined) {
+          return {borderRadius: "0px", color: "white"};
+        }
+        var newState;
+        if (action.type === "CHANGE_RADIUS") {
+          console.log(state);
+          newState = {...state, borderRadius: action.borderRadius};
+        } else if (action.type === "CHANGE_COLOR") {
+          console.log(state);
+          newState = {...state, color: action.color};
+        }
+        return newState;
+      }
+
+      function one() {
+        var state = store.getState();
+        document.querySelector("#one").innerHTML = `
+                <div class="container" style="border-radius:${state.borderRadius};background-color:${state.color}">
+                </div>
+            `;
+      }
+      // 값이 바뀔 때마다 one 함수를 호출
+      store.subscribe(one);
+      one();
+
+      function one() {
+        var state = store.getState();
+        document.querySelector("#one").innerHTML = `
+                <div class="container" style="border-radius:${state.borderRadius};background-color:${state.color}">
+                </div>
+            `;
+      }
+      // 값이 바뀔 때마다 one 함수를 호출
+      store.subscribe(one);
+      one();
+
+      function two() {
+        var state = store.getState();
+        document.querySelector("#two").innerHTML = `
+                <div class="container" style="border-radius:${state.borderRadius};background-color:${state.color}">
+                </div>
+            `;
+      }
+      // 값이 바뀔 때마다 two 함수를 호출
+      store.subscribe(two);
+      two();
+
+      function three() {
+        var state = store.getState();
+        document.querySelector("#three").innerHTML = `
+                <div class="container" style="border-radius:${state.borderRadius};background-color:${state.color}">
+                </div>
+            `;
+      }
+      // 값이 바뀔 때마다 three 함수를 호출
+      store.subscribe(three);
+      three();
+    </script>
+  </body>
+</html>
