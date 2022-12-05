@@ -5,15 +5,21 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "test2": "echo \"Error: 내가 만든 명령어는 npm run [명령어]로 실행\" && exit 1"
+    "test2": "echo \"Error: 내가 만든 명령어는 npm run [명령어]로 실행\" && exit 1",
+    "build": "webpack"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "react": "^18.2.0"
+    "html-webpack-plugin": "^5.5.0",
+    "react": "^18.2.0",
+    "style-loader": "^3.3.1"
   },
   "devDependencies": {
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.7.2",
+    "dotenv": "^16.0.3",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.0"
   }
