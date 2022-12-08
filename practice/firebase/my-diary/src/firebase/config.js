@@ -1,5 +1,5 @@
 import {initializeApp} from "firebase/app";
-import {getFirestore} from "firebase/firestore";
+import {getFirestore, Timestamp} from "firebase/firestore";
 import {getAuth} from "firebase/auth";
 
 const firebaseConfig = {
@@ -18,5 +18,8 @@ const app = initializeApp(firebaseConfig);
 const appFireStore = getFirestore(app);
 // 인증 초기화
 const appAuth = getAuth();
+// 타임스탬프 추가
+// firestore에 저장 시 저장 시간도 같이 넘겨 시간에 따라 데이터 정렬할 수 있게 한다.
+const timeStamp = Timestamp;
 
-export {appFireStore, appAuth};
+export {appFireStore, appAuth, timeStamp};
